@@ -1,0 +1,45 @@
+
+
+<div style="margin-top: 150px; background-color: lightgray; width: 50%; border-radius: 2rem; margin-left: 300px; height: 500px;">
+<div class="col-sm-6 col-xl-12">
+    <div class="container ">
+
+        <form action="/edit-userProfile?id={{username._id}}" method="post" enctype="multipart/form-data">
+            <div class="mt-5 mb-3">
+                <label class="form-label">Full name</label>
+                
+             <input type="text" class="form-control" name="username"  value="{{username.username}}" id="exampleInputUsername" required>
+             
+            </div>
+			 <div class="mt-5 mb-3">
+                <label  class="form-label">email</label>
+                
+               
+             <input type="text" class="form-control" name="email"  value="{{username.email}}" id="exampleInputUsername" required>
+             
+            </div>
+
+			 <div class="mt-5 mb-3">
+                <label  class="form-label">phone</label>
+                
+               
+             <input type="text" class="form-control" name="phone"  value="{{username.phone}}" id="exampleInputUsername" required>
+             
+            </div>
+
+             <div class="mt-5 mb-3">
+                <label  class="form-label">Image</label>
+                
+               
+             <input type="file" class="form-control" name="image"   id="exampleInputUsername" required>
+             
+            </div>
+            
+
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+
+    </div>
+</div>
+</div>

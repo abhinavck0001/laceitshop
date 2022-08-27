@@ -1,0 +1,19 @@
+<div class="col-sm-6 col-xl-12">
+    <div class="container ">
+
+        <form action="/admin/edit-category?id={{Category._id}}" method="post" enctype="multipart/form-data">
+            <div class="mt-5 mb-3">
+                <label for="" class="form-label">category</label>
+                
+               
+             <input type="text" class="form-control" name="category"  value="{{Category.category}}" id="exampleInputUsername" required>
+             
+            </div>
+            
+
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+
+    </div>
+</div>

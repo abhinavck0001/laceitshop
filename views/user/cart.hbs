@@ -1,0 +1,202 @@
+<!-- Modal Search -->
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div style="margin-top:50px;" id="reload-section">   
+ {{#if products}}
+    <form class="bg0 p-t-75 p-b-85">
+        <div class="container">
+            <div class="row">  
+                <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+                    <div class="m-l-25 m-r--38 m-lr-0-xl">
+                        {{#each products}}
+                            <div class="wrap-table-shopping-cart" style="margin-top: 15px; background-color: lightgrey;">
+                                <table class="table-shopping-cart">
+                                    <tr class="table_head">
+                                        <th class="column-1">product</th>
+                                        <th class="column-2"></th>
+                                        <th class="column-3">Price</th>
+                                        <th class="column-4"></th>
+                                         <th class="column-5">action</th>
+                                    </tr>
+                                    <tr class="table_row">
+                                            <td class="column-1">
+                                                <div class="how-itemcart1">
+                                                    <img src="product-image/{{ this.product.images.[0] }}" alt="IMG" style="height:80px ;width: 80px;"></div>
+                                             </td>
+                                                <td class="column-2">{{ this.product.name }}</td>
+                                                <td class="column-3">RS: <span id="t{{this.product._id}}">{{ this.sum }}</span></td>
+                                            
+                                            <td class="column-4">
+                                                 <div class="wrap-num-product flex-w m-l-auto m-r-0" style="border: none; height: 30px;">
+                                                 <button class=" btn btn-secondary"
+                                                   onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1, event)">-</button>
+                                                   <div style="background-color:lightgray; width:20px ; text-align: center; height: 20px;margin-top: 6px; ">
+                                                  <span id="{{this.product._id}}">{{this.quantity}}</span>
+                                                  </div>
+                                                  <button class="btn btn-secondary"
+                                                     onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1, event)">+</span></button>
+                                                     </div>
+                                            </td>
+
+                                               
+                                                <td>
+                                                <a href="javascript:void(0)" class="btn btn-danger"
+                                        onclick="remove('{{this._id}}','{{this.product._id}}')" >remove
+                                            </a>
+                                                 </td>
+                                    </tr>
+                                 </table>
+                                 </div>
+                            {{/each}}
+
+                                    {{!-- <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm" style="margin-top:20px ; background-color: grey;">
+                                        <div class="flex-w flex-m m-r-20 m-tb-5">
+                                            <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" >
+
+                                                <div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+                                                    Apply coupon
+                                                </div>
+                                            </div>
+
+                                           <a href="/cart">
+                                            <div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+                                                Update Cart
+                                            </div>
+                                            </a>
+                                        </div> --}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+                                    <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm" style="margin-top: 15px; background-color: lightgrey;">
+                                        <h4 class="mtext-109 cl2 p-b-30">
+                                            Cart Totals
+                                        </h4>
+
+                                        <div class="flex-w flex-t bor12 p-b-13">
+                                            <div class="size-208">
+                                                <span class="stext-110 cl2">
+                                                    product:
+                                                </span>
+                                            </div>
+
+                                            <div class="size-209">
+                                                <span class="mtext-110 cl2">
+                                                    {{cartcount}}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                                            
+
+                                            
+
+                                                <div class="flex-w flex-t p-t-27 p-b-33">
+                                                    
+                                                    <div class="size-208">
+                                                        <span class="mtext-101 cl2">
+                                                            Total:
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="size-209 p-t-1" style=" margin-right:5px ;">
+                                                        <span  id="total" class="mtext-110 cl2">
+                                                            RS:  {{totalValue}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="size-208">
+                                                        <span class="mtext-101 cl2">
+                                                            
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div style="width:100px; height: 20px; background-color:lightgrey;"></div>
+                                                <a href="/checkout">
+                                               <button type="button" class="btn btn-success"> Proceed to Checkout</button></td>
+                                               </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            </form>
+            {{else}}
+            <div class="container" >
+
+            <div class="col-sm-12 empty-cart-cls text-center mb-5 " style="margin-top:200px ;">
+                <img src="https://cdn-icons-png.flaticon.com/512/678/678451.png" width="130" height="130" class="img-fluid mb-5 mr-3">
+                <h3 class="mb-5"><strong>Your Cart is Empty</strong></h3>
+                <button type="button" class="btn btn-outline-secondary">
+                <a href="/shop" class="primary-btn mt-5 mb-5">Shop now </a>
+                </button>
+
+            </div>
+
+         {{/if}}
+    </div>
+
+
+
+
+<script>
+
+  function changeQuantity(cartId,proId,userId,count, event){
+    event.preventDefault()
+    let quantity=parseInt(document.getElementById(proId).innerHTML)
+    count=parseInt(count)
+    $.ajax({
+      url:'/change-product-quantity',
+      data:{
+        cart:cartId,
+        product:proId,
+        user:userId,
+        count:count,
+        quantity:quantity
+      },
+      method:'post',
+      success:(response)=>{
+        if(response.removeProduct){
+      swal("removed", "You clicked the button!", "success");
+       
+        $("#reload-section").load(location.href+" #reload-section")
+        }else{
+            
+          document.getElementById(proId).innerHTML=quantity+count
+          document.getElementById("total").innerHTML = response.total
+          $("#t"+proId).load(location.href + " #t"+proId);
+        }
+      }
+    })
+
+  }
+
+function remove(cartId, productId) {
+    
+        $.ajax({
+            url: '/removeProductFromCart',
+            data: {
+                cartId: cartId,
+                productId: productId
+            },
+            method: 'post',
+            success: (response) => {
+
+                if (response.productRemoved) {
+
+                   swal("removed success", "You clicked the button!", "success");
+                      $("#reload-section").load(location.href+" #reload-section")
+                }
+                else {
+                    alert('false')
+                }
+            },
+            error: (response) => {
+                alert('err')
+            }
+        })
+    }
+  
+
+
+</script>

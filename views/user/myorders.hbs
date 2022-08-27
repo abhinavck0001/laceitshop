@@ -1,0 +1,54 @@
+
+
+ <div style="margin-top: 150px;">
+    <table class="table" id="table_id">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">DATE</th>
+      <th scope="col">MOBILE</th>
+      <th scope="col">AMOUNT</th>
+      <th scope="col">PAYMENT</th>
+      <th scope="col">STATUS</th>
+      <th scope="col">VIEW</th>
+       <th scope="col">ACTION</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orders}}
+    <tr>
+      <th scope="row">{{inc @index}}</th>
+     <td>{{this.date}}</td>
+      <td>{{this.deliveryDetails.Phone}}</td>
+       
+      <td>{{this.total_amount}}</td>
+      <td>{{this.PaymentMethod}}</td>
+      <td>{{this.status}}</td>
+       <td><a href="/view-order-products?id={{this._id}}" class="btn btn-primary">details</a></td>
+       {{#if fixed}}
+
+       <td><p>canceled</p></td>
+
+       {{else}}
+       <td> <a
+              class="btn btn-danger" 
+              href="/cancel-order/{{this._id}}" 
+              onclick="return confirm ('are you want to cancel your order?')">cancel
+            </a></td>
+            {{/if}}
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+
+
+
+<script>
+  $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>

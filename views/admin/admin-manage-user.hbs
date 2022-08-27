@@ -1,0 +1,39 @@
+<div class="col-sm-6 col-xl-12">
+<section  style="background-color: whitesmoke;">
+<table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">no</th>
+      <th scope="col">username</th>
+      <th scope="col">email</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {{#each userDtls}}
+      <th scope="row">{{@index}}</th>
+      <td>{{this.username}}</td>
+      <td>{{this.email}}</td>
+      <td>{{#if blockUsers}} 
+            <a
+              class="btn btn-primary" 
+              href="/admin/admin-manage-user/unblock-Users/{{this._id}}" 
+              onclick="return confirm ('are you want to unblock this user ?')" 
+            >UNBLOCK</a>
+            {{else}}
+             <a
+              class="btn btn-danger" 
+              href="/admin/admin-manage-user/block-Users/{{this._id}}"
+              onclick="return confirm ('are you want to block this user ?')"  
+            >BLOCK</a>
+            {{/if}}
+</td>
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+    </div>
+</section>
+</div>

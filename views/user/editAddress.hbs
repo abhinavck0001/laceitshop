@@ -1,0 +1,104 @@
+
+
+
+<div style="margin-top: 150px; background-color: lightgray; width: 50%; border-radius: 2rem; margin-left: 300px; height: 100p;">
+<div class="col-sm-6 col-xl-12">
+
+    <div style="margin-left:213px ; border-radius: 10px; width: 220px;"> <h2>EDIT ADDRESS</h2></div>
+   
+
+
+    <div class="container ">
+       
+
+        <form action="/editAddress?id={{addressData.address.[0].addressId}}" method="post">
+
+    
+            <div class="mt-5 mb-3">
+                <label class="form-label">Full name</label>
+                
+             <input type="text" class="form-control" name="First_Name"  value="{{addressData.address.[0].First_Name}}" id="exampleInputUsername" required>
+             
+            </div>
+			 <div class="mt-5 mb-3">
+                <label  class="form-label">last name</label>
+                
+               
+             <input type="text" class="form-control" name="Last_Name"  value="{{addressData.address.[0].Last_Name}}" id="exampleInputUsername" required>
+             
+            </div>
+
+			 <div class="mt-5 mb-3">
+                <label  class="form-label">company name</label>
+                
+               
+             <input type="text" class="form-control" name="Company_Name"  value="{{addressData.address.[0].Company_Name}}" id="exampleInputUsername" required>
+             
+            </div>
+
+            <div class="mt-5 mb-3">
+                <label  class="form-label">street address</label>
+                
+               
+             <input type="text" class="form-control" name="Street_Address"  value="{{addressData.address.[0].Street_Address}}" id="exampleInputUsername" required>
+             
+            </div>
+
+            
+            <div class="mt-5 mb-3">
+                <label  class="form-label">landmark</label>
+                
+               
+             <input type="text" class="form-control" name="Extra_Details"  value="{{addressData.address.[0].Extra_Details}}" id="exampleInputUsername" required>
+             
+            </div>
+
+                <div class="mt-5 mb-3">
+                <label  class="form-label">Town </label>
+                
+               
+             <input type="text" class="form-control" name="Town_City"  value="{{addressData.address.[0].Town_City}}" id="exampleInputUsername" required>
+             
+            </div>
+
+            <div class="mt-5 mb-3">
+                <label  class="form-label">city </label>
+                
+               
+             <input type="text" class="form-control" name="Country_State"  value="{{addressData.address.[0].Country_State}}" id="exampleInputUsername" required>
+             
+            </div>
+            
+              <div class="mt-5 mb-3">
+                <label  class="form-label">post code</label>
+                
+               
+             <input type="text" class="form-control" name="Post_Code"  value="{{addressData.address.[0].Post_Code}}" id="exampleInputUsername" required>
+             
+            </div>
+
+             <div class="mt-5 mb-3">
+                <label  class="form-label">phone</label>
+                
+               
+             <input type="text" class="form-control" name="Phone"  value="{{addressData.address.[0].Phone}}" id="exampleInputUsername" required>
+             
+            </div>
+
+            <div class="mt-5 mb-3">
+                <label  class="form-label"> alt- phone</label>
+                
+               
+             <input type="text" class="form-control" name="Alt_Phone"  value="{{addressData.address.[0].Alt_Phone}}" id="exampleInputUsername" required>
+             
+            </div>
+            
+            
+
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+
+    </div>
+</div>
+</div>

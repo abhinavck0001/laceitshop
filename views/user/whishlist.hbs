@@ -1,0 +1,88 @@
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   
+   <div style="margin-top:80px ;">
+    {{#if products}}
+        <div class="bg0 m-t-23 p-b-140">
+            <div class="container">
+                <div class="flex-w flex-sb-m p-b-52">
+                    <div class="flex-w flex-l-m filter-tope-group m-tb-10"></div>
+                </div>
+                <div style="margin-bottom:50PX ; margin-left: 530PX; font-family:fangsong ;">
+                    <h2>WHISHLIST</h2>
+                </div>
+                <div class="row isotope-grid">
+                    {{#each products}}
+
+
+                        <div
+                            class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <img src="/product-image/{{ this.product.images.[0] }}" alt="IMG-PRODUCT" style="height:20rem ; border-radius: 50px;">
+
+                                        <a href="/quick-view?id={{ this.product._id }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+                                            details
+                                        </a>
+                                    </div>
+
+                                    <div style="margin-left:30px ;" class="block2-txt flex-w flex-t p-t-14">
+                                        <div class="block2-txt-child1 flex-col-l ">
+                                            <a href="#" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                                {{ this.product.name }}
+                                            </a>
+                                            <a href="#" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                                {{ this.product.category }}
+                                            </a>
+
+                                            <span class="stext-105 cl3">
+                                                ${{ this.product.price }}
+                                            </span>
+                                        </div>
+
+                                        <div class="block2-txt-child2 flex-r p-t-3">
+                                            <a href="/remove-from-whishlist?id={{ this._id }}&proId={{ this.product._id }}" onclick="return confirm ('are you want to remove this product?')">
+                                                <img style="height:30px ;width:30px ; margin-right: 5px; margin-top: -4px;" class="icon-heart1 dis-block trans-04" src="https://w7.pngwing.com/pngs/81/282/png-transparent-computer-icons-backspace-symbol-next-button-miscellaneous-rectangle-logo-thumbnail.png" alt="ICON"></a>
+                                            </div>
+                                            <a href="/add-to-cartFromWish/{{ product._id }}">
+                                                <button onclick="sweetalert()" style="margin-top:20px ;margin-left: -22px;" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                                    Add to cart
+                                                </button>
+                                            </a>
+                                         {{!-- <a style="margin-left: 82px; margin-top:-50px ;" href="/add-to-cart/{{ this.product._id }}" class="btn btn-success">add to cart</a> --}}
+							 
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+
+                        <!-- Load more -->
+
+                    </div>
+                </div>
+            {{ else }}
+                <div class="container">
+
+                    <div class="col-sm-12 empty-cart-cls text-center mb-5 " style="margin-top:200px ;">
+                        <img src="https://i.pinimg.com/564x/f6/e4/64/f6e464230662e7fa4c6a4afb92631aed.jpg" width="130" height="130" class="img-fluid mb-5 mr-3">
+                            <h3 class="mb-5">
+                                <strong>Your wishlist is Empty</strong>
+                            </h3>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <a href="/shop" class="primary-btn mt-5 mb-5">Shop now
+                                </a>
+                            </button>
+
+                        </div>
+
+                    {{/if}}
+                </div>
+
+
+<script>
+
+    function sweetalert(){
+swal("added to cart", "You clicked the button!", "success");
+    }
+</script>
