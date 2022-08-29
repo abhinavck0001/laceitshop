@@ -8,10 +8,11 @@ const { v4 : uuidv4 } = require('uuid')
 const Razorpay=require('razorpay');
 const { Collection } = require('mongodb')
 const { log } = require('console')
+require('dotenv').config()
 
 var instance = new Razorpay({
-    key_id: 'rzp_test_TiZxuptYCWYf15',
-    key_secret: '9AOj5oJg5JSub1dSOon1cFxr',
+    key_id: process.env.KEY_ID,
+    key_secret: process.env.KEY_SECRET,
   });
 
 
