@@ -391,7 +391,7 @@ getUserOrders:(userId)=>{
     return new Promise(async(resolve,reject)=>{
        try {
          let orders= await db.get().collection(collection.ORDER_COLLECTION).find({userId:objectId(userId)}).toArray()
-        
+       
          resolve(orders)
        } catch (error) {
         reject(error)
@@ -530,7 +530,6 @@ cancelOrder:(proId) => {
     return new Promise(async(resolve,reject)=>{
        try {
          let orders= await db.get().collection(collection.ORDER_COLLECTION).find().toArray()
-        
          resolve(orders)
        } catch (error) {
         reject(error)

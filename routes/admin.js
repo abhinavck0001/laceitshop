@@ -6,12 +6,12 @@ var productHelper = require("../helpers/product-helpers");
 const { verifyPayment } = require("../helpers/user-helpers");
 var userHelpers = require("../helpers/user-helpers");
 const multer=require('../middlewares/multter')
-
+require('dotenv').config()
 
 
 const adminData = {
-  username: "abhinav",
-  password: "12345",
+  username:  process.env.ADMIN_NAME,
+  password:  process.env.ADMIN_PASSWORD,
 };
 
 
